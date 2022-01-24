@@ -76,7 +76,10 @@ public class CreateCameraViewController implements Initializable {
         });
 
         //update the price text field such that it will only accept a double
-
+        priceTextField.textProperty().addListener((obs, oldValue, newValue)->{
+            try{Double.parseDouble(newValue);}
+            catch (Exception e){priceTextField.setText(oldValue);}
+        });
     }
 
     @FXML
@@ -98,8 +101,14 @@ public class CreateCameraViewController implements Initializable {
         }
         if (res != -1 && price != -1)
         {
-            Camera newCamera = new Camera(make, model, res, slr, price);
-            msgLabel.setText(newCamera.toString());
+            try {
+                Camera newCamera = new Camera(make, model, res, slr, price);
+                msgLabel.setText(newCamera.toString());
+            }catch (IllegalArgumentException e)
+            {
+                msgLabel.setText(e.getMessage());
+            }
+
         }
     }
 }
