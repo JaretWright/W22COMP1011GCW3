@@ -106,16 +106,17 @@ public class CreateCameraViewController implements Initializable {
         {
             try {
                 Camera newCamera = new Camera(make, model, res, slr, price);
-                Formatter formatter = new Formatter(new File("camera.txt"));
-                formatter.format("New camera: %s\n",newCamera);
-                formatter.close();
+                DBUtility.insertCameraIntoDB(newCamera);
+//                Formatter formatter = new Formatter(new File("camera.txt"));
+//                formatter.format("New camera: %s\n",newCamera);
+//                formatter.close();
                 msgLabel.setText(newCamera.toString());
             }catch (IllegalArgumentException e)
             {
                 msgLabel.setText(e.getMessage());
-            }catch (FileNotFoundException e)
+            }catch (Exception e)
             {
-                msgLabel.setText("error writing to file " + e.getMessage());
+                e.printStackTrace();
             }
 
         }
