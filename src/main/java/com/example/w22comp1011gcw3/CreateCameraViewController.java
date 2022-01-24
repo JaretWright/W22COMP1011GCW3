@@ -2,10 +2,7 @@ package com.example.w22comp1011gcw3;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,7 +16,7 @@ public class CreateCameraViewController implements Initializable {
     private TextField modelTextField;
 
     @FXML
-    private TextField resolutionTextField;
+    private Spinner<Integer> resolutionSpinner;
 
     @FXML
     private CheckBox slrCheckBox;
@@ -47,7 +44,7 @@ public class CreateCameraViewController implements Initializable {
         int res = -1;
         double price = -1;
         try {
-            res = Integer.parseInt(resolutionTextField.getText());
+            res = resolutionSpinner.getValue();
             price = Double.parseDouble(priceTextField.getText());
         }
         catch (Exception e)
