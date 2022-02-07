@@ -22,7 +22,7 @@
                   <TableColumn fx:id="resolutionColumn" prefWidth="75.0" text="Resolution" />
                   <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
                   <TableColumn fx:id="slrColumn" prefWidth="75.0" text="SLR" />
-                  <TableColumn prefWidth="75.0" text="Units Sold" />
+                  <TableColumn fx:id="unitsSoldColumn" prefWidth="75.0" text="Units Sold" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

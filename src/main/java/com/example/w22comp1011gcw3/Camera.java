@@ -90,7 +90,7 @@ public class Camera {
         if (validMakes.contains(make))
             this.make = make;
         else
-            throw new IllegalArgumentException("Make must be in the list of: " + validMakes);
+            throw new IllegalArgumentException(make + " must be in the list of: " + validMakes);
     }
 
     /**
@@ -99,7 +99,7 @@ public class Camera {
      */
     public static List<String> getManufacturers()
     {
-        List<String> brands = Arrays.asList("Canon", "Nikon", "Sony", "Fujifilm","Kodak");
+        List<String> brands = Arrays.asList("Canon", "Nikon", "Sony", "FujiFilm","Kodak");
         Collections.sort(brands);
         return brands;
     }

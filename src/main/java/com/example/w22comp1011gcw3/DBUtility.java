@@ -1,6 +1,7 @@
 package com.example.w22comp1011gcw3;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBUtility {
     private static String user = DBCredentials.user;
@@ -47,5 +48,42 @@ public class DBUtility {
        }
 
        return cameraID;
+    }
+
+    /**
+     * This method will return a list of all Camera's and their associated number of sales
+     */
+    public static ArrayList<Camera> getCamerasFromDB()
+    {
+        ArrayList<Camera> cameras = new ArrayList<>();
+
+        //query the DB and create Camera objects / add them to the list
+        String sql = "SELECT cameras.cameraId, make, model, resolution, price, slr, COUNT(salesId) AS 'units sold'\n" +
+                    "FROM cameras INNER JOIN camerasales on cameras.cameraId = camerasales.cameraId\n" +
+                    "GROUP BY cameras.cameraId;";
+
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, password);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                ) {
+
+            while (resultSet.next())
+            {
+                int cameraID = resultSet.getInt("cameraId");
+                String make = resultSet.getString("make");
+                String model = resultSet.getString("model");
+                int resolution = resultSet.getInt("resolution");
+                double price = resultSet.getDouble("price");
+                boolean slr = resultSet.getBoolean("slr");
+                int unitsSold = resultSet.getInt("units sold");
+
+                Camera newCamera = new Camera(cameraID,make,model,resolution,slr,price,unitsSold);
+                cameras.add(newCamera);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cameras;
     }
 }
