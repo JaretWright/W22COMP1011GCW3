@@ -8,7 +8,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CameraTableViewController implements Initializable {
@@ -20,7 +19,7 @@ public class CameraTableViewController implements Initializable {
     private TableColumn<Camera, Integer> cameraIDColumn;
 
     @FXML
-    private TableColumn<Camera, String> manufacturerColumn;
+    private TableColumn<Camera, String> makeColumn;
 
     @FXML
     private TableColumn<Camera, String> modelColumn;
@@ -43,7 +42,7 @@ public class CameraTableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cameraIDColumn.setCellValueFactory(new PropertyValueFactory<>("cameraID"));
-        manufacturerColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
+        makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
         resolutionColumn.setCellValueFactory(new PropertyValueFactory<>("resolution"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
