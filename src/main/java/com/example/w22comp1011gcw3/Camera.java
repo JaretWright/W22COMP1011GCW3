@@ -112,10 +112,10 @@ public class Camera {
     }
 
     public void setPrice(double price) {
-        if (price >= 10 && price <= 5000)
+        if (price >= 10 && price <= 7000)
             this.price = price;
         else
-            throw new IllegalArgumentException("price must be in the range 10-5000");
+            throw new IllegalArgumentException("price must be in the range 10-7000");
     }
 
     public String toString()
