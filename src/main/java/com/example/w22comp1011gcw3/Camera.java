@@ -14,6 +14,7 @@ public class Camera {
     private String make, model;
     private boolean slr;
     private double price;
+    private int unitsSold;
 
     public Camera(String make, String model, int res, boolean slr, double price) {
         setResolution(res);
@@ -30,6 +31,26 @@ public class Camera {
     public Camera(int cameraID, String make, String model, int resolution,  boolean slr, double price) {
         this(make, model, resolution, slr, price);
         setCameraID(cameraID);
+    }
+
+    /**
+     *  This is an "overloaded" constructor.
+     */
+    public Camera(int cameraID, String make, String model, int resolution,  boolean slr, double price, int unitsSold) {
+        this(make, model, resolution, slr, price);
+        setUnitsSold(unitsSold);
+        setCameraID(cameraID);
+    }
+
+    public int getUnitsSold() {
+        return unitsSold;
+    }
+
+    public void setUnitsSold(int unitsSold) {
+        if (unitsSold >=0)
+            this.unitsSold = unitsSold;
+        else
+            throw new IllegalArgumentException("units sold must be >= 0");
     }
 
     public int getCameraID() {
