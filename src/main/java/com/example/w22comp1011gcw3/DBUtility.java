@@ -3,9 +3,9 @@ package com.example.w22comp1011gcw3;
 import java.sql.*;
 
 public class DBUtility {
-    private static String user = "student";
-    private static String password = "student";
-    private static String connectURL = "jdbc:mysql://localhost:3306/w22Java";
+    private static String user = DBCredentials.user;
+    private static String password = DBCredentials.password;
+    private static String connectURL = "jdbc:mysql://172.31.22.43:3306/Jaret001";
 
     /**
      * This method will send a Camera object into the DB and return the cameraID

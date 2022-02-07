@@ -10,8 +10,8 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("create-camera-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+//        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("create-camera-view.fxml"));
+        Scene scene = new Scene(FXMLLoader.load(Main.class.getResource("create-camera-view.fxml")));
         stage.setTitle("Create Camera");
         stage.setScene(scene);
         stage.show();
