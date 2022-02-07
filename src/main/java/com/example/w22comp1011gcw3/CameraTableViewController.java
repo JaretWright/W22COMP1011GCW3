@@ -20,7 +20,7 @@ public class CameraTableViewController implements Initializable {
     private TableColumn<Camera, Integer> cameraIDColumn;
 
     @FXML
-    private TableColumn<Camera, String> makeColumn;
+    private TableColumn<Camera, String> manufacturerColumn;
 
     @FXML
     private TableColumn<Camera, String> modelColumn;
@@ -43,7 +43,7 @@ public class CameraTableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cameraIDColumn.setCellValueFactory(new PropertyValueFactory<>("cameraID"));
-        makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
+        manufacturerColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
         resolutionColumn.setCellValueFactory(new PropertyValueFactory<>("resolution"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
