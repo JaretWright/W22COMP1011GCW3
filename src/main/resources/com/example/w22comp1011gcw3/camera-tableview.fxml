@@ -29,6 +29,9 @@
                </columnResizePolicy>
             </TableView>
          </center>
+         <bottom>
+            <Label fx:id="highestRevenueLabel" text="Label" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
