@@ -1,5 +1,6 @@
 package com.example.w22comp1011gcw3;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -7,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,6 +76,14 @@ public class CameraTableViewController implements Initializable {
             double highestRevenue = highRev.getPrice() * highRev.getUnitsSold();
             return (String.format("$%.2f, %s",highestRevenue, highRev));
         }
+    }
+
+    /**
+     * Change scenes to the chart view
+     */
+    @FXML
+    private void loadChartData(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"camera-chart-view.fxml");
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.w22comp1011gcw3;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -7,6 +8,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.util.ResourceBundle;
@@ -30,6 +32,19 @@ public class CameraChartViewController implements Initializable {
         barChart.setLegendVisible(false);
     }
 
+    /**
+     * This method will load the TableView scene when called
+     */
+    @FXML
+    private void loadTableView(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"camera-tableview.fxml");
+    }
+
+
+
+    /**
+     * This is just an example of adding a second data set, it is not connected to the GUI
+     */
     @FXML
     private void addData()
     {
