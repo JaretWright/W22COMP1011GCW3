@@ -41,14 +41,18 @@ public class CameraTableViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cameraIDColumn.setCellValueFactory(new PropertyValueFactory<>("cameraID"));
-        makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
-        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
-        resolutionColumn.setCellValueFactory(new PropertyValueFactory<>("resolution"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        slrColumn.setCellValueFactory(new PropertyValueFactory<>("slr"));
-        unitsSoldColumn.setCellValueFactory(new PropertyValueFactory<>("unitsSold"));
+        //configure the columns to connect with the Camera class get methods
+        {
+            cameraIDColumn.setCellValueFactory(new PropertyValueFactory<>("cameraID"));
+            makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
+            modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+            resolutionColumn.setCellValueFactory(new PropertyValueFactory<>("resolution"));
+            priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+            slrColumn.setCellValueFactory(new PropertyValueFactory<>("slr"));
+            unitsSoldColumn.setCellValueFactory(new PropertyValueFactory<>("unitsSold"));
+        }
 
+        //add the camera objects from the DB to the tableview object
         tableView.getItems().addAll(DBUtility.getCamerasFromDB());
         highestRevenueLabel.setText("Highest Revenue = " + getHighestRevenueString());
     }
