@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.w22comp1011gcw3.CameraChartViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.w22comp1011gcw3.CameraChartViewController">
    <children>
       <BorderPane layoutX="188.0" layoutY="69.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label text="Camera Sales by Model" BorderPane.alignment="CENTER" />
+            <Label id="header" text="Camera Sales by Model" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <BarChart fx:id="barChart" animated="false" BorderPane.alignment="CENTER">
