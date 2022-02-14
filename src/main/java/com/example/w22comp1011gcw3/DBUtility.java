@@ -1,7 +1,10 @@
 package com.example.w22comp1011gcw3;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class DBUtility {
     private static String user = DBCredentials.user;
@@ -85,5 +88,17 @@ public class DBUtility {
             e.printStackTrace();
         }
         return cameras;
+    }
+
+
+    public static XYChart.Series<String, Integer> getUnitsSold() {
+        XYChart.Series<String, Integer> unitsSold = new XYChart.Series<>();
+        ArrayList<Camera> cameras = getCamerasFromDB();
+
+        //loop over each camera and add it to the XYChart.Series
+        for (Camera camera : cameras)
+            unitsSold.getData().add(new XYChart.Data<>(camera.getMakeAndModel(),camera.getUnitsSold()));
+
+        return unitsSold;
     }
 }
